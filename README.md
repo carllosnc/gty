@@ -2,7 +2,37 @@
 
 > A simple way to do GET http requests in flutter
 
-## Using gty Mixin
+
+### Installation
+
+Add this to your package's pubspec.yaml file:
+
+```yaml
+gty:
+  git:
+    url: https://github.com/C4co/gty.git
+```
+
+### Using gty Mixin
+
+The gty mixin is designed for Flutter's StatefulWidget to streamline HTTP GET requests and manage the loading, success, and error states. It provides a robust way to handle API interactions with built-in state management.
+
+**Features:**
+
+- **State Management**: Automatically handles isLoading, isSuccess, and isError states during API requests.
+- **Response Handling**: Parses JSON responses and provides easy access to transform the response data.
+- **Custom Headers**: Allows for custom headers.
+- **Error Handling**: Catches and manages errors gracefully.
+
+**States:**
+
+`isLoading`: Indicates that a request is in progress.
+`isSuccess`: Indicates that the request completed successfully.
+`isError`: Indicates that an error occurred during the request.
+`response`: Holds the full HTTP response from the request.
+`error`: Contains the error information if the request fails.
+`data`: Provides access to the parsed JSON response data.
+`viewData`: Provides a customized view of the response data, ex: adapting the data to a specific model.
 
 ```dart
 import 'package:flutter/material.dart';
@@ -47,7 +77,7 @@ class _ExampleOneState extends State<ExampleOne> with gty {
   }
 }
 ```
-## Using Gty Widget
+### Using Gty Widget
 
 ```dart
 import 'package:flutter/material.dart';
