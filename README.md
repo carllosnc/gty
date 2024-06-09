@@ -17,14 +17,14 @@ gty:
 
 The gty mixin is designed for Flutter's StatefulWidget to streamline HTTP GET requests and manage the loading, success, and error states. It provides a robust way to handle API interactions with built-in state management.
 
-**Features:**
+**Features**:
 
 - **State Management**: Automatically handles isLoading, isSuccess, and isError states during API requests.
 - **Response Handling**: Parses JSON responses and provides easy access to transform the response data.
 - **Custom Headers**: Allows for custom headers.
 - **Error Handling**: Catches and manages errors gracefully.
 
-**States:**
+**States**:
 
 - `isLoading`: Indicates that a request is in progress.
 - `isSuccess`: Indicates that the request completed successfully.
@@ -33,6 +33,14 @@ The gty mixin is designed for Flutter's StatefulWidget to streamline HTTP GET re
 - `error`: Contains the error information if the request fails.
 - `data`: Provides access to the parsed JSON response data.
 - `viewData`: Provides a customized view of the response data, ex: adapting the data to a specific model.
+
+- **fetchData({url, headers, onSuccess})**:
+
+- `url (required)`: The URL to which the HTTP GET request is sent.
+- `headers (optional)`: Additional headers to include in the request.
+- `onSuccess (optional)`: A callback function that is executed if the request is successful. This function receives the parsed JSON data as an argument and can be used to process the data.
+
+**A complete example**:
 
 ```dart
 import 'package:flutter/material.dart';
@@ -77,6 +85,7 @@ class _ExampleOneState extends State<ExampleOne> with gty {
   }
 }
 ```
+
 ## Using Gty Widget
 
 ```dart
