@@ -2,7 +2,6 @@
 
 > A simple way to do GET http requests in flutter
 
-
 ### Installation
 
 Add this to your package's pubspec.yaml file:
@@ -34,7 +33,7 @@ The gty mixin is designed for Flutter's StatefulWidget to streamline HTTP GET re
 - `data`: Provides access to the parsed JSON response data.
 - `viewData`: Provides a customized view of the response data, ex: adapting the data to a specific model.
 
-- **fetchData({url, headers, onSuccess})**:
+**fetchData({url, headers, onSuccess})**:
 
 - `url (required)`: The URL to which the HTTP GET request is sent.
 - `headers (optional)`: Additional headers to include in the request.
