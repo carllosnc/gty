@@ -13,7 +13,7 @@ gty:
     url: https://github.com/C4co/gty.git
 ```
 
-### Using gty Mixin
+## Using gty Mixin
 
 The gty mixin is designed for Flutter's StatefulWidget to streamline HTTP GET requests and manage the loading, success, and error states. It provides a robust way to handle API interactions with built-in state management.
 
@@ -26,13 +26,13 @@ The gty mixin is designed for Flutter's StatefulWidget to streamline HTTP GET re
 
 **States:**
 
-`isLoading`: Indicates that a request is in progress.
-`isSuccess`: Indicates that the request completed successfully.
-`isError`: Indicates that an error occurred during the request.
-`response`: Holds the full HTTP response from the request.
-`error`: Contains the error information if the request fails.
-`data`: Provides access to the parsed JSON response data.
-`viewData`: Provides a customized view of the response data, ex: adapting the data to a specific model.
+- `isLoading`: Indicates that a request is in progress.
+- `isSuccess`: Indicates that the request completed successfully.
+- `isError`: Indicates that an error occurred during the request.
+- `response`: Holds the full HTTP response from the request.
+- `error`: Contains the error information if the request fails.
+- `data`: Provides access to the parsed JSON response data.
+- `viewData`: Provides a customized view of the response data, ex: adapting the data to a specific model.
 
 ```dart
 import 'package:flutter/material.dart';
@@ -77,7 +77,7 @@ class _ExampleOneState extends State<ExampleOne> with gty {
   }
 }
 ```
-### Using Gty Widget
+## Using Gty Widget
 
 ```dart
 import 'package:flutter/material.dart';
