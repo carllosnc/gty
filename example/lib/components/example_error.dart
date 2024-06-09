@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gty/gty.dart';
-import 'package:gty/gty_exception.dart';
 
 class ExampleError extends StatefulWidget {
   const ExampleError({super.key});
