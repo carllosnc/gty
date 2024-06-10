@@ -89,6 +89,20 @@ class _ExampleOneState extends State<ExampleOne> with gty {
 }
 ```
 
+## adapt and adaptList
+
+The `adapt` and `adaptList` functions are used to convert JSON data to a specific model class.
+
+**adapt(dynamic data, Function(Map<String, dynamic>) toJson) : T**
+```dart
+adapt<User>(data, User.fromJson)
+```
+
+**adaptList(List<dynamic> data, Function(Map<String, dynamic>) toJson) : List<T>**
+```dart
+adaptList<User>(data, User.fromJson)
+```
+
 ## Using Gty Widget
 
 The `Gty` widget is a custom `StatefulWidget` designed to simplify making HTTP GET requests and handling different states such as loading, success, and error. It utilizes the gty mixin to manage the request lifecycle and provide a flexible way to render UI based on the request's state.
