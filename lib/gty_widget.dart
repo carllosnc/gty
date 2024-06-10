@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import './gty_mixin.dart';
+import './gty_exception.dart';
 
 class Gty extends StatefulWidget {
   final String? url;
   final Widget Function(BuildContext context, dynamic data) child;
-  final Widget error;
+  final Widget Function(BuildContext context, GtyException error)? error;
   final Widget loading;
   final Function(dynamic)? onSuccess;
+  final Client? httpClient;
 
   const Gty({
     super.key,
     this.url,
     required this.child,
-    this.error = const Text('Error'),
-    this.loading = const CircularProgressIndicator(),
+    this.error,
+    this.loading = const Text('Loading...'),
     this.onSuccess,
+    this.httpClient,
   });
 
   @override
@@ -27,6 +31,7 @@ class _GtyState extends State<Gty> with gty {
     super.initState();
 
     fetchData(
+      httpClient: widget.httpClient,
       url: widget.url!,
       onSuccess: widget.onSuccess,
     );
@@ -39,7 +44,7 @@ class _GtyState extends State<Gty> with gty {
     }
 
     if (isError) {
-      return widget.error;
+      return widget.error!(context, error!);
     }
 
     return widget.child(context, viewData);
