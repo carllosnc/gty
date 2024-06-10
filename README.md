@@ -99,22 +99,14 @@ class ExampleWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Gty(
       url: "http://localhost:8080/users/1",
-      loading: const CircularProgressIndicator(),
-      error: const Text("Error"),
+      loading: const Text("Loading..."),
+      error: (context, error) => Center(
+        child: Text(error.message),
+      ),
       onSuccess: (data) => adapt<User>(data, User.fromJson),
       child: (context, data) {
-        return Container(
-          alignment: Alignment.center,
-          width: double.infinity,
-          padding: const EdgeInsets.all(8.0),
-          color: Colors.red,
-          child: Text(
-            "${(data as User).name} - From example widget",
-            style: const TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+        return Text(
+          "${(data as User).name} - From example widget",
         );
       },
     );
