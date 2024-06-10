@@ -15,6 +15,15 @@ jobs:
     - uses: subosito/flutter-action@v2
       with:
         flutter-version: '3.19.5'
+
+    # install dart flog global
+    - name: Install dart flog
+      run: dart pub global activate dart_frog_cli
+
+    # install dependencies in server folder
+    - name: Install dependencies in server
+      run: cd server && dart pub get
+
     - run: flutter pub get
     - run: flutter test
     - run: flutter analyze
