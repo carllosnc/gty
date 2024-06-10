@@ -1,43 +1,46 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/widgets.dart';
-import 'package:http/http.dart' as http;
-import '../gty_status_code.dart';
-import '../gty_exception.dart';
+import 'package:gty/gty.dart';
+import 'package:http/http.dart';
 
 mixin gty<T extends StatefulWidget> on State<T> {
   bool isLoading = true;
   bool isSucess = false;
   bool isError = false;
   dynamic response;
-  dynamic error;
+  GtyException? error;
   dynamic data;
   dynamic viewData;
 
-  Map<String, String> defaultHeaders = {
+  final Map<String, String> _defaultHeaders = {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
   };
 
   Future<void> fetchData({
+    Client? httpClient,
     required String url,
     Map<String, String>? headers,
     Function(dynamic)? onSuccess,
   }) async {
     Map<String, String> fullHeaders = {
-      ...defaultHeaders,
+      ..._defaultHeaders,
       ...?headers,
     };
 
+    httpClient ??= Client();
+
     try {
-      final responseData = await http.get(
+      final responseData = await httpClient.get(
         Uri.parse(url),
         headers: fullHeaders,
       );
 
       if (clientErrorRange.contains(responseData.statusCode) || serverErrorRange.contains(responseData.statusCode)) {
         throw GtyException(
-          message: "Error ${responseData.statusCode}",
+          message: "Error: ${responseData.statusCode}",
           statusCode: responseData.statusCode,
           description: jsonDecode(responseData.body),
         );
@@ -53,12 +56,27 @@ mixin gty<T extends StatefulWidget> on State<T> {
           viewData = onSuccess(data);
         }
       });
-    } on http.ClientException catch (e) {
+    } on ClientException catch (e) {
       setState(() {
         isError = true;
         isLoading = false;
         isSucess = false;
-        error = e;
+        error = GtyException(
+          message: e.message,
+          statusCode: 000,
+          description: e.uri,
+        );
+      });
+    } on SocketException catch (e) {
+      setState(() {
+        isError = true;
+        isLoading = false;
+        isSucess = false;
+        error = GtyException(
+          message: e.message,
+          statusCode: 000,
+          description: e.address,
+        );
       });
     } on GtyException catch (e) {
       setState(() {
