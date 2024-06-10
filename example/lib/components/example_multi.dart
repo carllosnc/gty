@@ -29,8 +29,8 @@ class _ExampleMultiState extends State<ExampleMulti> with gty {
     }
 
     if (isError) {
-      return const Center(
-        child: Text("Error"),
+      return Center(
+        child: Text(error!.message),
       );
     }
 

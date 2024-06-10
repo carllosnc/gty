@@ -28,15 +28,10 @@ class _ExampleErrorState extends State<ExampleError> with gty {
     }
 
     if (isError) {
-      var errorData = error as GtyException;
-
       return Center(
         child: Column(
           children: [
-            Text(errorData.message),
-            Text(errorData.description['message']),
-            Text(errorData.description['details']),
-            Text(errorData.statusCode.toString()),
+            Text(error!.message),
           ],
         ),
       );
