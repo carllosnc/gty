@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:gty/gty.dart';
 import '../models/user.dart';
+import 'package:http/http.dart';
 
 class ExampleOne extends StatefulWidget {
-  const ExampleOne({super.key});
+  final Client? httpClient;
+
+  const ExampleOne({
+    super.key,
+    this.httpClient,
+  });
 
   @override
   State<ExampleOne> createState() => _ExampleOneState();
@@ -15,6 +21,7 @@ class _ExampleOneState extends State<ExampleOne> with gty {
     super.initState();
 
     fetchData(
+      httpClient: widget.httpClient,
       url: "http://localhost:8080/users/1",
       onSuccess: (data) => adapt<User>(data, User.fromJson),
     );

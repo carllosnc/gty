@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:gty/gty.dart';
+import 'package:http/http.dart';
 import '../models/user.dart';
 
 class ExampleMulti extends StatefulWidget {
-  const ExampleMulti({super.key});
+  final Client? httpClient;
+
+  const ExampleMulti({
+    super.key,
+    this.httpClient,
+  });
 
   @override
   State<ExampleMulti> createState() => _ExampleMultiState();
@@ -15,6 +21,7 @@ class _ExampleMultiState extends State<ExampleMulti> with gty {
     super.initState();
 
     fetchData(
+      httpClient: widget.httpClient,
       url: "http://localhost:8080/users/",
       onSuccess: (data) => adaptList<User>(data, User.fromJson),
     );
