@@ -87,6 +87,19 @@ class _ExampleOneState extends State<ExampleOne> with gty {
 
 ## Using Gty Widget
 
+The `Gty` widget is a custom `StatefulWidget` designed to simplify making HTTP GET requests and handling different states such as loading, success, and error. It utilizes the gty mixin to manage the request lifecycle and provide a flexible way to render UI based on the request's state.
+
+| Parameter    | Type                                                         | Description                                                                            |
+| ------------ | ------------------------------------------------------------ | -------------------------------------------------------------------------------------- |
+| `url`        | `String?`                                                    | The URL to send the HTTP GET request to.                                               |
+| `child`      | `Widget Function(BuildContext context, dynamic data)`        | A function that returns a widget, given the BuildContext and fetched data.             |
+| `error`      | `Widget Function(BuildContext context, GtyException error)?` | A function that returns a widget, given the BuildContext and an error.                 |
+| `loading`    | `Widget`                                                     | A widget to display while the data is being fetched. Defaults to `Text('Loading...')`. |
+| `onSuccess`  | `Function(dynamic)?`                                         | A callback function that is called when the request is successful.                     |
+| `httpClient` | `http.Client?`                                               | An optional custom HTTP client.                                                        |
+
+**Usage**:
+
 ```dart
 import 'package:flutter/material.dart';
 import 'package:gty/gty.dart';
