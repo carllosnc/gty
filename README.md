@@ -6,7 +6,7 @@
 
 > A simple way to do GET http requests in flutter
 
-### Installation
+## Installation
 
 Add this to your package's pubspec.yaml file:
 
