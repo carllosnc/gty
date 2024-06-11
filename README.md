@@ -93,12 +93,12 @@ class _ExampleOneState extends State<ExampleOne> with gty {
 
 The `adapt` and `adaptList` functions are used to convert JSON data to a specific model class.
 
-**adapt(dynamic data, Function(Map<String, dynamic>) toJson) : T**
+**`adapt(dynamic data, Function(Map<String, dynamic>) T.toJson) : T`**
 ```dart
 adapt<User>(data, User.fromJson)
 ```
 
-**adaptList(List<dynamic> data, Function(Map<String, dynamic>) toJson) : List<T>**
+**`adaptList(List<dynamic> data, Function(Map<String, dynamic>) T.toJson) : List<T>`**
 ```dart
 adaptList<User>(data, User.fromJson)
 ```
