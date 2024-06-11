@@ -13,7 +13,7 @@ Add this to your package's pubspec.yaml file:
 ```yaml
 gty:
   git:
-    url: https://github.com/C4co/gty.git
+    url: https://github.com/carllosnc/gty.git
 ```
 
 ## Using gty Mixin
