@@ -2,7 +2,7 @@
 
 ![Static Badge](https://img.shields.io/badge/Flutter_package-blue)
 [![GTY](https://github.com/carllosnc/gty/actions/workflows/dart.yml/badge.svg)](https://github.com/carllosnc/gty/actions/workflows/dart.yml)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/c276485a94ee4b2fa03d9aed816bfeae)](https://app.codacy.com/gh/C4co/gty/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/b0420d42747f41fcbdb3f79b3c9cced2)](https://app.codacy.com/gh/carllosnc/gty/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 > A simple way to do GET http requests in flutter
 
