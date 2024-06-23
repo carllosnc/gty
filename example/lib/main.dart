@@ -1,8 +1,9 @@
-import 'package:example/components/example_error.dart';
 import 'package:flutter/material.dart';
 import './components/example_one.dart';
 import './components/example_multi.dart';
 import './components/example_widget.dart';
+import './components/example_error.dart';
+import './components/example_generic.dart';
 
 void main() {
   runApp(const MainApp());
@@ -27,6 +28,8 @@ class MainApp extends StatelessWidget {
             ExampleError(),
             Divider(),
             ExampleWidget(),
+            Divider(),
+            ExampleGeneric(),
           ],
         ),
       ),
