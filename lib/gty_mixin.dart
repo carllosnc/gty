@@ -5,14 +5,14 @@ import 'package:flutter/widgets.dart';
 import 'package:gty/gty.dart';
 import 'package:http/http.dart';
 
-mixin gty<T extends StatefulWidget> on State<T> {
+mixin gty<T extends StatefulWidget, DataType> on State<T> {
   bool isLoading = true;
   bool isSucess = false;
   bool isError = false;
   dynamic response;
   GtyException? error;
   dynamic data;
-  dynamic viewData;
+  DataType? viewData;
 
   final Map<String, String> _defaultHeaders = {
     'Content-Type': 'application/json',
