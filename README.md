@@ -145,6 +145,23 @@ class ExampleWidget extends StatelessWidget {
 }
 ```
 
+## Development
+
+**Server**
+
+The web server is provide by [dart_frog](https://pub.dev/packages/dart_frog).
+
+```bash
+cd server
+dart_frog
+```
+
+**Tests**
+
+```bash
+flutter test
+```
+
 ---
 
 Carlos Costa @ 2024
