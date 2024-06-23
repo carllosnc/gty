@@ -153,7 +153,7 @@ The web server is provide by [dart_frog](https://pub.dev/packages/dart_frog).
 
 ```bash
 cd server
-dart_frog
+dart_frog dev
 ```
 
 **Tests**
