@@ -8,6 +8,7 @@ import './user.dart';
 import '../example/lib/components/example_one.dart';
 import '../example/lib/components/example_multi.dart';
 import '../example/lib/components/example_error.dart';
+import '../example/lib/components/example_generic.dart';
 
 getClient(dynamic data) {
   final httpClient = MockClient(
@@ -123,5 +124,27 @@ void main() {
     expect(find.text("404"), findsOne);
     expect(find.text("Not found"), findsOne);
     expect(find.text("The requested resource could not be found"), findsOne);
+  });
+
+  testWidgets("Check gty Mixin for generic", (widgetTester) async {
+    await widgetTester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: ExampleGeneric(
+            httpClient: getClient(
+              User(
+                name: "User: 1",
+                age: 25,
+                email: "user1@example.com",
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+
+    expect(find.text("Loading..."), findsOne);
+    await widgetTester.pumpAndSettle();
+    expect(find.text("User: 1"), findsOne);
   });
 }
