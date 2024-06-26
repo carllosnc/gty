@@ -89,6 +89,16 @@ class _ExampleOneState extends State<ExampleOne> with gty {
 }
 ```
 
+**Infer type of viewData**
+
+Using the example above, the `viewData` can be inferred as a `User` object.
+
+```dart
+class _ExampleOneState extends State<ExampleOne> with gty<ExampleOne, User> {
+  ...
+}
+```
+
 ## adapt and adaptList
 
 The `adapt` and `adaptList` functions are used to convert JSON data to a specific model class.
