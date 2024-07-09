@@ -6,6 +6,7 @@ import 'package:gty/gty.dart';
 import 'package:http/http.dart';
 
 mixin gty<T extends StatefulWidget, DataType> on State<T> {
+  bool customLoading = false;
   bool isLoading = true;
   bool isSucess = false;
   bool isError = false;
@@ -19,7 +20,7 @@ mixin gty<T extends StatefulWidget, DataType> on State<T> {
     'Accept': 'application/json',
   };
 
-  Future<void> fetchData({
+  Future<dynamic> fetchData({
     Client? httpClient,
     required String url,
     Map<String, String>? headers,
@@ -56,6 +57,8 @@ mixin gty<T extends StatefulWidget, DataType> on State<T> {
           viewData = onSuccess(data);
         }
       });
+
+      return jsonDecode(responseData.body);
     } on ClientException catch (e) {
       setState(() {
         isError = true;
