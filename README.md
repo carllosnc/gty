@@ -36,6 +36,7 @@ The gty mixin is designed for Flutter's StatefulWidget to streamline HTTP GET re
 - `error`: Contains the error information if the request fails.
 - `data`: Provides access to the parsed JSON response data.
 - `viewData`: Provides a customized view of the response data, ex: adapting the data to a specific model.
+- `customLoading`: Allows for custom loading states.
 
 **fetchData({url, headers, onSuccess})**:
 
