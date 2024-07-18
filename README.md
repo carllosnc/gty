@@ -22,10 +22,11 @@ The gty mixin is designed for Flutter's StatefulWidget to streamline HTTP GET re
 
 **Features**:
 
-- **State Management**: Automatically handles isLoading, isSuccess, and isError states during API requests.
-- **Response Handling**: Parses JSON responses and provides easy access to transform the response data.
-- **Custom Headers**: Allows for custom headers.
-- **Error Handling**: Catches and manages errors gracefully.
+- [x] State Management — Automatically handles isLoading, isSuccess, and isError states during API requests.
+- [x] Response Handling — Parses JSON responses and provides easy access to transform the response data.
+- [x] Custom Headers — Allows for custom headers.
+- [x] Error Handling — Catches and manages errors gracefully.
+- [ ] Cachable — Support for memory cache
 
 **States**:
 
