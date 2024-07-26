@@ -18,7 +18,7 @@ gty:
 
 ## Using gty Mixin
 
-The gty mixin is designed for Flutter's StatefulWidget to streamline HTTP GET requests and manage the loading, success, and error states. It provides a robust way to handle API interactions with built-in state management.
+The gty mixin is designed for Flutter's StatefulWidget to streamline HTTP GET requests and manage the loading, success, and error states. It provides a easy way to handle API interactions with built-in state management.
 
 **Features**:
 
