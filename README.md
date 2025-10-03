@@ -161,7 +161,7 @@ class ExampleWidget extends StatelessWidget {
 
 **Server**
 
-The web server is provide by [dart_frog](https://pub.dev/packages/dart_frog).
+The web server is provided by [dart_frog](https://pub.dev/packages/dart_frog).
 
 ```bash
 cd server
